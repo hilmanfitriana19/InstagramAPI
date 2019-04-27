@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="info" style="border:1px solid blue;margin-bottom:20px;">                    
+            <div id="data" style="margin-left:35%;">            
+            <img src= <%= user.profile_picture %> align="left" height = "110px" style="margin-right:3%; border-radius:50%;">
+            <h6>Username   : <%= user.username %></h6>
+            <h6>Nama       : <%= user.full_name %></h6>
+            <h6>Following  : <%= user.counts.followed_by %></h6>
+            <h6>Followers  : <%= user.counts.follows %></h6>
+            <h6>Media      : <%= user.counts.media %></h6>          
+            </div>
+        </div>
+        
+        <div class="row">
+        <% instagram.forEach(function(insta) { %>
+        <div class="instagram-pic col-sm-3"><!--  -->
+
+            <a href="<%= insta.link %>" target="_blank">
+                <img src="<%= insta.images.standard_resolution.url %>" class="img-responsive">
+            </a>
+
+            <div class="instagram-bar">
+                <div class="likes">
+                    <span class="glyphicon glyphicon-heart"></span> <%= insta.likes.count %>
+                </div>
+
+                <div class="comments">
+                    <span class="glyphicon glyphicon-comment"></span> <%= insta.comments.count %>
+                </div>
+            </div>
+
+        </div>
+        <% }); %>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>
