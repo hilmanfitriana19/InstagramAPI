@@ -212,7 +212,7 @@ app.get('/hahad', function(req, res){
         //res.render('pages/index', { instagram : result });
     });
 });
-app.get('/haham', function(req, res){
+app.get('/hilman', function(req, res){
    // create a new instance of the use method which contains the access token gotten
     ig.use({
      access_token : accessToken
